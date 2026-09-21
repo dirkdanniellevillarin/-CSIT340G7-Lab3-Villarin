@@ -5,7 +5,7 @@ function Header(props) {
 function Part(props) {
   return (
     <p>
-      {props.part} - {props.exercises} units
+      {props.part.name} - {props.part.exercises} units
     </p>
   );
 }
@@ -13,9 +13,9 @@ function Part(props) {
 function Content(props) {
   return (
     <div>
-      <Part part={props.part1} exercises={props.exercises1} />
-      <Part part={props.part2} exercises={props.exercises2} />
-      <Part part={props.part3} exercises={props.exercises3} />
+      <Part part={props.part1} />
+      <Part part={props.part2} />
+      <Part part={props.part3} />
     </div>
   );
 }
@@ -38,27 +38,24 @@ function Footer(props) {
 function App() {
   const course = "Application Development";
 
-  const part1 = "IT365 - Data Analytics";
-  const exercises1 = 3;
-
-  const part2 = "CSIT327 - Information Management 2";
-  const exercises2 = 3;
-
-  const part3 = "CSIT340 - Industry Elective";
-  const exercises3 = 3;
+  const part1 = {
+    name: "IT365 - Data Analytics",
+    exercises: 3,
+  };
+  const part2 = {
+    name: "CSIT327 - Information Management 2",
+    exercises: 3,
+  };
+  const part3 = {
+    name: "CSIT340 - Industry Elective",
+    exercises: 3,
+  };
 
   return (
     <div>
       <Header course={course} />
-      <Content
-        part1={part1}
-        exercises1={exercises1}
-        part2={part2}
-        exercises2={exercises2}
-        part3={part3}
-        exercises3={exercises3}
-      />
-      <Total total={exercises1 + exercises2 + exercises3} />
+      <Content part1={part1} part2={part2} part3={part3} />
+      <Total total={part1.exercises + part2.exercises + part3.exercises} />
       <Footer
         fullName="Dirk Dannielle E. Villarin"
         courseCode="CSIT340"
