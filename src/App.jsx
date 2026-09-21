@@ -1,5 +1,5 @@
 function Header(props) {
-  return <h1>{props.course}</h1>;
+  return <h1>{props.course.name}</h1>;
 }
 
 function Part(props) {
@@ -43,28 +43,29 @@ function Footer(props) {
 }
 
 function App() {
-  const course = "Application Development";
-
-  const parts = [
-    {
-      name: "IT365 - Data Analytics",
-      exercises: 3,
-    },
-    {
-      name: "CSIT327 - Information Management 2",
-      exercises: 3,
-    },
-    {
-      name: "CSIT340 - Industry Elective",
-      exercises: 3,
-    },
-  ];
+  const course = {
+    name: "Application Development",
+    parts: [
+      {
+        name: "IT365 - Data Analytics",
+        exercises: 3,
+      },
+      {
+        name: "CSIT327 - Information Management 2",
+        exercises: 3,
+      },
+      {
+        name: "CSIT340 - Industry Elective",
+        exercises: 3,
+      },
+    ],
+  };
 
   return (
     <div>
       <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
       <Footer
         fullName="Dirk Dannielle E. Villarin"
         courseCode="CSIT340"
